@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tani Barkat">
+<meta name="dcterms.date" content="2023-02-06">
+
+<title>Data Visualisation - Tuition Data Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Data Visualisation</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tuition Data Analysis</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">news</div>
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tani Barkat </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 6, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 209,012 × 7
+   name                              state total_…¹  year campus net_c…² incom…³
+   &lt;chr&gt;                             &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  
+ 1 Piedmont International University NC       20174  2016 On Ca…  11475  0 to 3…
+ 2 Piedmont International University NC       20174  2016 On Ca…  11451  30,001…
+ 3 Piedmont International University NC       20174  2016 On Ca…  16229  48_001…
+ 4 Piedmont International University NC       20174  2016 On Ca…  15592  75,001…
+ 5 Piedmont International University NC       20514  2017 On Ca…  11668. 0 to 3…
+ 6 Piedmont International University NC       20514  2017 On Ca…  11644. 30,001…
+ 7 Piedmont International University NC       20514  2017 On Ca…  16503. 48_001…
+ 8 Piedmont International University NC       20514  2017 On Ca…  15855. 75,001…
+ 9 Piedmont International University NC       20514  2017 On Ca…      0  Over 1…
+10 Piedmont International University NC       20829  2018 On Ca…  11848. 0 to 3…
+# … with 209,002 more rows, and abbreviated variable names ¹​total_price,
+#   ²​net_cost, ³​income_lvl</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="szcvpiamki" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#szcvpiamki) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#szcvpiamki) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#szcvpiamki) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#szcvpiamki) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#szcvpiamki) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#szcvpiamki) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#szcvpiamki) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#szcvpiamki) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#szcvpiamki) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#szcvpiamki) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#szcvpiamki) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#szcvpiamki) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#szcvpiamki) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#szcvpiamki) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#szcvpiamki) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#szcvpiamki) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#szcvpiamki) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#szcvpiamki) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#szcvpiamki) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#szcvpiamki) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#szcvpiamki) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#szcvpiamki) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#szcvpiamki) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#szcvpiamki) .gt_left {
+  text-align: left;
+}
+
+:where(#szcvpiamki) .gt_center {
+  text-align: center;
+}
+
+:where(#szcvpiamki) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#szcvpiamki) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#szcvpiamki) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#szcvpiamki) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#szcvpiamki) .gt_super {
+  font-size: 65%;
+}
+
+:where(#szcvpiamki) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#szcvpiamki) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#szcvpiamki) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#szcvpiamki) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#szcvpiamki) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#szcvpiamki) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#szcvpiamki) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Universities in US states with Tuition Less than $2000 dollars</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="name">name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="state">state</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="type">type</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="degree_length">degree_length</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="name" class="gt_row gt_left">Aaniiih Nakoda College</td>
+<td headers="state" class="gt_row gt_left">Montana</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Aims Community College</td>
+<td headers="state" class="gt_row gt_left">Colorado</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Alamance Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Allan Hancock College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Alvin Community College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">American Indian College of the Assemblies of God</td>
+<td headers="state" class="gt_row gt_left">Arizona</td>
+<td headers="type" class="gt_row gt_left">Private</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">American River College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Antelope Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Arkansas Northeastern College</td>
+<td headers="state" class="gt_row gt_left">Arkansas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Asheville-Buncombe Technical Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Ashworth College</td>
+<td headers="state" class="gt_row gt_left">Georgia</td>
+<td headers="type" class="gt_row gt_left">For Profit</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Bakersfield College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Barstow Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Beaufort County Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Berkeley City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Blue Ridge Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Brookhaven College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Brunswick Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Butte College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cabrillo College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Caldwell Community College and Technical Institute</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Canada College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Carteret Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Catawba Valley Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cedar Valley College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Central Carolina Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Central New Mexico Community College</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cerritos College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cerro Coso Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Chabot College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Chaffey College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Chief Dull Knife College</td>
+<td headers="state" class="gt_row gt_left">Montana</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Citrus College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">City College of San Francisco</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cleveland Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Clovis Community College</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Coastal Carolina Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Coastline Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Coffeyville Community College</td>
+<td headers="state" class="gt_row gt_left">Kansas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of Alameda</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of Marin</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of San Mateo</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of the Albemarle</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of the Canyons</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of the Desert</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of the Mainland</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of the Redwoods</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of the Sequoias</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">College of the Siskiyous</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Collin County Community College District</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Columbia College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Contra Costa College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Copper Mountain College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cosumnes River College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Crafton Hills College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cuesta College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cuyamaca College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Cypress College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Davidson County Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">De Anza College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Diablo Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Dine College</td>
+<td headers="state" class="gt_row gt_left">Arizona</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Dona Ana Community College of New Mexico State University</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Durham Technical Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">East Los Angeles College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Eastern New Mexico University: Roswell</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Eastfield College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">El Camino College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">El Centro College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Evergreen Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Fayetteville Technical Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Feather River College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Folsom Lake College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Foothill College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Forsyth Technical Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Fresno City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Fullerton College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Galveston College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Gaston College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Gavilan College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Glendale Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Golden West College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Grossmont College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Guilford Technical Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Halifax Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Hartnell College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Haskell Indian Nations University</td>
+<td headers="state" class="gt_row gt_left">Kansas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Haywood Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Houston Community College System</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Imperial Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Irvine Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Isothermal Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Johnston Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Kilgore College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Lake Tahoe Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Laney College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Las Positas College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Lassen Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Lenoir Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Lone Star College System</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Long Beach City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Angeles City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Angeles Harbor College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Angeles Mission College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Angeles Pierce College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Angeles Southwest College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Angeles Trade and Technical College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Angeles Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Los Medanos College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Luna Community College</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Martin Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mayland Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">McDowell Technical Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mendocino College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Merced College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Merritt College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mesalands Community College</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">MiraCosta College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mission College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mitchell Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Modesto Junior College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Monterey Peninsula College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Montgomery Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Moorpark College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Moreno Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mount San Antonio College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mount San Jacinto College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Mountain View College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Napa Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Navajo Technical University</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Navarro College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">New Mexico Junior College</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">New Mexico State University at Alamogordo</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">New Mexico State University at Carlsbad</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">New Mexico State University at Grants</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Norco College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">North Lake College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Northland Pioneer College</td>
+<td headers="state" class="gt_row gt_left">Arizona</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Ohlone College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Orange Coast College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Oxnard College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Palo Verde College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Palomar College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Pamlico Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Panola College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Paris Junior College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Pasadena City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Pitt Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Porterville College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Randolph Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Reedley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Richland College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Richmond Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Rio Hondo College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Rio Salado College</td>
+<td headers="state" class="gt_row gt_left">Arizona</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Riverside City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Roanoke-Chowan Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Robeson Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Rockingham Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Rowan-Cabarrus Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Sacramento City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Saddleback College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Sampson Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Bernardino Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Diego City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Diego Mesa College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Diego Miramar College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Jacinto College : South Campus</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Joaquin Delta College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Jose City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">San Juan College</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Sandhills Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Santa Ana College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Santa Barbara City College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Santa Fe Community College</td>
+<td headers="state" class="gt_row gt_left">New Mexico</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Santa Monica College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Santa Rosa Junior College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Santiago Canyon College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Shasta College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Sierra College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Skyline College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Solano Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Southeastern Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Southwestern College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Southwestern Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Surry Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Taft College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Tarrant County College</td>
+<td headers="state" class="gt_row gt_left">Texas</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Tohono O'odham Community College</td>
+<td headers="state" class="gt_row gt_left">Arizona</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Tri-County Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University College of San Juan</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University of Puerto Rico: Arecibo</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University of Puerto Rico: Bayamon University College</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University of Puerto Rico: Humacao</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University of Puerto Rico: Mayaguez</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University of Puerto Rico: Medical Sciences</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University of Puerto Rico: Ponce</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">University of Puerto Rico: Utuado</td>
+<td headers="state" class="gt_row gt_left">NA</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">4 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Vance-Granville Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Ventura College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Victor Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">West Hills College: Coalinga</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">West Hills College: Lemoore</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">West Los Angeles College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">West Valley College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Western Piedmont Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Wilkes Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Wilson Community College</td>
+<td headers="state" class="gt_row gt_left">North Carolina</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Woodland Community College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Yuba College</td>
+<td headers="state" class="gt_row gt_left">California</td>
+<td headers="type" class="gt_row gt_left">Public</td>
+<td headers="degree_length" class="gt_row gt_left">2 Year</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

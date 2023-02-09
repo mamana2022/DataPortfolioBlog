@@ -1,0 +1,42 @@
+---
+title: "Tuition Data Analysis"
+author: "Tani Barkat"
+date: "2023-02-06"
+categories: [news, code, analysis]
+image: "image.jpg"
+---
+
+```{r, echo=FALSE,  message=FALSE, warning=FALSE}
+library(tidyverse)
+library(scales)
+tuition_cost <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_cost.csv')
+tuition_income <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_income.csv') 
+salary_potential <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/salary_potential.csv')
+historical_tuition <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/historical_tuition.csv')
+diversity_school <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/diversity_school.csv')
+```
+
+
+
+```{r, echo = FALSE,  message=FALSE, warning=FALSE }
+# install.packages("gt")
+library(gt)
+library(glue)
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+tuition_income
+```
+
+
+
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+###create a gt table based on instate tuition greater than \$2,000 
+tuition_cost %>% 
+  filter(in_state_tuition <= 2500) %>% 
+  select(name, state,type,degree_length) %>% 
+  gt() %>% 
+  tab_header(title = "Universities in US states with Tuition Less than $2000 dollars")
+```
