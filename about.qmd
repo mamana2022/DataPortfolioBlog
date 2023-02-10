@@ -2,11 +2,13 @@
 title: "About"
 
 about: jolla
-image: oicyouthday.jpg
+image: Shalan.jpg
 html:
   theme: quartz
   website:
   twitter-card: true
 ---
+
+
 
 About this site

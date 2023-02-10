@@ -1,12 +1,24 @@
 ---
 title: "Personal Portfolio"
 
-about: jolla
-image: Shalan.jpg
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+
 html:
   theme: lumen
   website:
   twitter-card: true
 ---
 
-"Kindness creates an endless ripple that comes back to you'
+![](Shalan.jpg
+)
+
+# "Kindness creates an endless ripple that comes back to you'
+<br><br>
