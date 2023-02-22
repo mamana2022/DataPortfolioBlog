@@ -4,11 +4,9 @@ title: "About"
 about: jolla
 image: Shalan.jpg
 html:
-  theme: quartz
+  theme: flatly
   website:
   twitter-card: true
 ---
-
-
 
 About this site
